@@ -138,20 +138,23 @@ function changeDisplayedImage(index, dirction = '', animate = true) {
   newImage.setAttribute('alt', images[index].name);
   newImage.setAttribute('value', index);
 
+  var newImageHeight, newImageWidth;
+
   if (newImage.width > newImage.height) {
-    newImage.width = main.clientWidth;
-    newImage.height = (images[index].dimensions.height / images[index].dimensions.width) * newImage.width;
+    newImageWidth = main.clientWidth;
+    newImageHeight = (images[index].dimensions.height / images[index].dimensions.width) * newImageWidth;
   } else {
-    newImage.height = main.clientHeight;
-    newImage.width = (images[index].dimensions.width / images[index].dimensions.height) * newImage.height;
+    newImageHeight = main.clientHeight;
+    newImageWidth = (images[index].dimensions.width / images[index].dimensions.height) * newImageHeight;
   }
 
 
   var newDesc = document.createElement('p');
   newDesc.setAttribute('id', 'descreption');
-  newDesc.setAttribute('style', 'margin-top: ' + ((main.clientHeight / 2) - (newImage.height / 2)) + 'px;');
+  newDesc.setAttribute('style', 'margin-top: ' + ((main.clientHeight / 2) - (newImageHeight / 2)) + 'px;');
   newDesc.innerHTML = images[index].description;
   main.appendChild(newImage);
   main.appendChild(newDesc);
-  animate && newImage.setAttribute('style', 'animation: ' + images[index].animation + ' ease-in .1s ' + dirction + ';margin-top: ' + ((main.clientHeight / 2) - (newImage.height / 2)) + 'px;');
+  animate && newImage.setAttribute('style', 'animation: ' + images[index].animation + ' ease-in .1s ' + dirction + ';margin-top: ' + ((main.clientHeight / 2) - (newImageHeight / 2)) + 'px;' + ' height: ' + newImageHeight + 'px; width: ' + newImageWidth + 'px;');
+  !animate && newImage.setAttribute('style', 'margin-top: ' + ((main.clientHeight / 2) - (newImageHeight / 2)) + 'px;' + ' height: ' + newImageHeight + 'px; width: ' + newImageWidth + 'px;');
 }
