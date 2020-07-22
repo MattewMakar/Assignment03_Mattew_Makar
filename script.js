@@ -96,6 +96,7 @@ function loadImages() {
 
     image.setAttribute('value', i);
     image.setAttribute('title', images[i].name);
+    image.setAttribute('alt', images[i].name);
     image.onclick = display;
 
 
@@ -134,6 +135,7 @@ function changeDisplayedImage(index, dirction = '', animate = true) {
   var newImage = document.createElement('img');
   newImage.setAttribute('id', 'mainImage');
   newImage.setAttribute('src', images[index].source);
+  newImage.setAttribute('alt', images[index].name);
   newImage.setAttribute('value', index);
 
   if (newImage.width > newImage.height) {
