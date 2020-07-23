@@ -83,6 +83,8 @@ const images = [
     animation: "bounceUp .3s",
   },
 ];
+
+
 var list = document.getElementById('side');
 var main = document.getElementById('loadingContainer');
 
@@ -92,14 +94,11 @@ function loadImages() {
   for (var i = 0; i < images.length; i++) {
     var image = document.createElement('img');
     image.src = images[i].source;
-    image.className = "sideList";
-
+    image.setAttribute('class','sideList');
     image.setAttribute('value', i);
     image.setAttribute('title', images[i].name);
     image.setAttribute('alt', images[i].name);
     image.onclick = display;
-
-
     list.appendChild(image);
     if (i == 0) {
       changeDisplayedImage(i, '', false);
@@ -130,7 +129,6 @@ function keyControl(event) {
 
 
 function changeDisplayedImage(index, dirction = '', animate = true) {
-  console.log(index);
   main.innerHTML = "";
   var newImage = document.createElement('img');
   newImage.setAttribute('id', 'mainImage');
