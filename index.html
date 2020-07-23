@@ -8,33 +8,36 @@
   <meta name="description" content="interactive images">
   <link rel="icon" href="./images/album.ico">
   <link rel="stylesheet" href="./style.css">
-  <title>interactive images</title>
+  <title>Interactive images</title>
 </head>
 
+
+
+
+<!-- the whole page will be loaded from the images array in the JS file -->
 <body onload="loadImages()" onkeydown="keyControl(event)">
+
+  <!-- header that identify the web page -->
   <h1>Toronto Landmarks</h1>
 
+  <!-- container to hold the images and the display  -->
   <section id="mainContainer">
     <h6>mainContainer</h6>
 
-
+<!-- container for the main image -->
     <section  id="loadingContainer">
       <h6>mainImage</h6>
     </section>
 
-
+<!-- a container for the images on the side bar -->
     <section id="side">
       <h6>side</h6>
     </section>
 
 
 
-
-  </section>
-
-
-
-  <script src="./script.js"></script>
+<!-- only one JS file -->
+  </section><script src="./script.js"></script>
 
 </body>
 

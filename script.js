@@ -85,10 +85,18 @@ const images = [
 ];
 
 
+//==================================================================
+/* global variables for the side bar and the representation container 
+to be accessible for all functions */
+//==================================================================
+
 var list = document.getElementById('side');
 var main = document.getElementById('loadingContainer');
 
-
+//==================================================================
+/* This function is called onload() to load the images on the side bar 
+and start with the first image in the presentation container */
+//==================================================================
 
 function loadImages() {
   for (var i = 0; i < images.length; i++) {
@@ -106,13 +114,23 @@ function loadImages() {
   }
 }
 
-
+//==================================================================
+/* This function is called onclick() its whole job to get the index of 
+the clicked image passes the it to the changeDisplayedImage function */
+//==================================================================
 
 function display() {
   var index = parseInt(this.getAttribute('value'));
   changeDisplayedImage(index);
 }
 
+//==================================================================
+
+/* this function is called on key down its job to check the key 
+whether up or down and get the index of the image on the 
+representation container and then passes the proper index 
+to the changeDisplayedImage function */
+//==================================================================
 
 
 function keyControl(event) {
@@ -126,6 +144,11 @@ function keyControl(event) {
   }
 }
 
+//==================================================================
+/* this function is called by all other functions and its responsible 
+of loading the proper image in the representation container and 
+assigning the proper animation and style  */
+//==================================================================
 
 
 function changeDisplayedImage(index, dirction = '', animate = true) {
