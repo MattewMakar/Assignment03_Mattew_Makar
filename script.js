@@ -83,7 +83,12 @@ const images = [
     animation: "bounceUp .3s",
   },
 ];
-
+//==================================================================
+//assigning event listener to the whole document
+//==================================================================
+//this will be assigned to the window object  when the window is loaded before the document is loaded 
+addEventListener("load", loadImages);
+document.addEventListener("keydown", keyControl);
 
 //==================================================================
 /* global variables for the side bar and the representation container 
@@ -106,7 +111,7 @@ function loadImages() {
     image.setAttribute('value', i);
     image.setAttribute('title', images[i].name);
     image.setAttribute('alt', images[i].name);
-    image.onclick = display;
+    image.addEventListener("click", display );
     list.appendChild(image);
     if (i == 0) {
       changeDisplayedImage(i, '', false);
@@ -125,7 +130,6 @@ function display() {
 }
 
 //==================================================================
-
 /* this function is called on key down its job to check the key 
 whether up or down and get the index of the image on the 
 representation container and then passes the proper index 
@@ -162,10 +166,10 @@ function changeDisplayedImage(index, dirction = '', animate = true) {
   var newImageHeight, newImageWidth;
 
   if (newImage.width > newImage.height) {
-    newImageWidth = main.clientWidth;
+    newImageWidth = main.clientWidth;//this to get the current veiw width 
     newImageHeight = (images[index].dimensions.height / images[index].dimensions.width) * newImageWidth;
   } else {
-    newImageHeight = main.clientHeight;
+    newImageHeight = main.clientHeight;//this to get the current view height
     newImageWidth = (images[index].dimensions.width / images[index].dimensions.height) * newImageHeight;
   }
 
